@@ -1,0 +1,16 @@
+﻿  main.cpp
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(111): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(131): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(132): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(141): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(241): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(244): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(245): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(246): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(251): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  Generating code
+  2 of 908 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  BLACKJACK_CORE (Redesign).vcxproj -> C:\Users\mmeri\Downloads\MarkMeritt_100692252_A4\MarkMeritt_100692252_A4\Release\BLACKJACK_CORE_v2.exe

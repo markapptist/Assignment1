@@ -1,0 +1,15 @@
+﻿  glad.c
+  main.cpp
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(110): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(130): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(131): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(140): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(200): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(203): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(204): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(205): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\downloads\markmeritt_100692252_a4\markmeritt_100692252_a4\blackjack_core (redesign)\main.cpp(210): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  STB.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  BLACKJACK_CORE (Redesign).vcxproj -> C:\Users\mmeri\Downloads\MarkMeritt_100692252_A4\MarkMeritt_100692252_A4\Debug\BLACKJACK_CORE_v2.exe
