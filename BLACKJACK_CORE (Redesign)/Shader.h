@@ -10,6 +10,8 @@ class Shader {
 public:
 	unsigned int ID;
 
+	Shader() {}
+
 	// Constructor
 	Shader(const char* vertexPath, const char* fragmentPath) {
 
