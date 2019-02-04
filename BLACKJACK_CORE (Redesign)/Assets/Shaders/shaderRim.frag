@@ -45,5 +45,5 @@ void main(){
 								pow(finalColor.b, gamma));
 
 	out_color = vec4(finalColorGamma, 1);
-	FragColor = vec4(finalColorGamma, 1.0);
+
 }

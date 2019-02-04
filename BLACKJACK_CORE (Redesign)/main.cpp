@@ -45,10 +45,10 @@ Shader rimShader;
 Camera camera(glm::vec3(0.0f, 2.6f, 7.0f)); 
 
 glm::vec3 pointLightPositions[] = {
-  glm::vec3(0.7f,  0.2f,  2.0f),
-  glm::vec3(2.3f, -3.3f, -4.0f),
-  glm::vec3(-4.0f,  2.0f, -12.0f),
-  glm::vec3(0.0f,  0.0f, -3.0f)
+  ObjectPosition1,
+   ObjectPosition2,
+   ObjectPosition3,
+   ObjectPosition4
 };
 
 int main() 
@@ -119,6 +119,7 @@ int main()
 
 		processInput(window);
 
+		
 		ShaderProgram.use();
 		ShaderProgram.setInt("material.diffuse", 0);
 		ShaderProgram.setInt("material.specular", 2);
@@ -127,6 +128,10 @@ int main()
 
 		ShaderProgram.setVec3("spotLight.position", camera.Position);
 		ShaderProgram.setVec3("spotLight.direction", camera.Front);
+
+		ShaderProgram.setVec3("spotLight.ambient", 0.0f, 0.0f, 0.0f);
+		ShaderProgram.setVec3("spotLight.diffuse", 0.0f, 0.0f, 0.0f);
+		ShaderProgram.setVec3("spotLight.specular", 0.0f, 0.0f, 0.0f);
 
 		ShaderProgram.setFloat("spotLight.constant", 0.0f);
 		ShaderProgram.setFloat("spotLight.linear", 0.00);
@@ -147,13 +152,19 @@ int main()
 
 		ShaderProgram.setMat4("model", o2);
 		object2.Draw(ShaderProgram);
+
+		ShaderProgram.setMat4("model", o3);
+		object3.Draw(ShaderProgram);
+
+
+		ShaderProgram.setMat4("model", o4);
+		object4.Draw(ShaderProgram);
+
 		glEnable(GL_BLEND);
 
-		lightShader.setMat4("model", o3);
-		object3.Draw(lightShader);
-
-		lightShader.setMat4("model", o4);
-		object4.Draw(lightShader);
+		
+		//glDisable(GL_DEPTH_TEST);
+		glEnable(GL_BLEND);
 	
 		rimShader.use();
 
@@ -184,9 +195,9 @@ int main()
 		rimShader.setMat4("light_position", o4);
 		rimShader.setMat4("eye_position", o4);
 		object4.Draw(rimShader);
-		
-		glEnable(GL_DEPTH_TEST);
-		glDisable(GL_BLEND);
+
+		//glEnable(GL_DEPTH_TEST);
+		//glDisable(GL_BLEND);	
 
 		glfwSwapBuffers(window);
 		glfwPollEvents(); 
@@ -234,7 +245,7 @@ void processInput(GLFWwindow *window) {
 		//Ambient Lighting Only
 
 		cout << "Ambient Lighting" << endl;
-
+		
 		ShaderProgram.setVec3("pointLights[0].position", pointLightPositions[0]);
 		ShaderProgram.setVec3("pointLights[0].ambient", 2.8f, 2.6f, 2.6f);
 		ShaderProgram.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.0f);
@@ -247,7 +258,7 @@ void processInput(GLFWwindow *window) {
 		ShaderProgram.setFloat("pointLights[0].constant", 1.0f);
 		ShaderProgram.setFloat("pointLights[0].linear", 0.09);
 		ShaderProgram.setFloat("pointLights[0].quadratic", 0.032);
-
+		
 		rimShader.setVec3("pointLights[0].position", pointLightPositions[0]);
 		rimShader.setVec3("pointLights[0].ambient", 2.8f, 2.6f, 2.6f);
 		rimShader.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.0f);
@@ -267,9 +278,10 @@ void processInput(GLFWwindow *window) {
 
 		cout << "Specular Lighting" << endl;
 
+
 		ShaderProgram.setVec3("pointLights[0].position", pointLightPositions[0]);
 		ShaderProgram.setVec3("pointLights[0].ambient", 0.0f, 0.0f, 0.0f);
-		ShaderProgram.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.0f);
+		ShaderProgram.setVec3("pointLights[0].diffuse", 5.5f, 5.5f, 5.5f);
 		ShaderProgram.setVec3("pointLights[0].specular", 2.6f, 2.6f, 2.6f);
 
 		ShaderProgram.setVec3("spotLight.ambient", 4.0f, 4.0f, 4.0f);
@@ -277,7 +289,7 @@ void processInput(GLFWwindow *window) {
 		ShaderProgram.setVec3("spotLight.specular", 5.0f, 5.0f, 5.0f);
 
 		ShaderProgram.setFloat("pointLights[0].constant", 1.0f);
-		ShaderProgram.setFloat("pointLights[0].linear", 0.09);
+		ShaderProgram.setFloat("pointLights[0].linear", 0.19);
 		ShaderProgram.setFloat("pointLights[0].quadratic", 0.032);
 	}
 
