@@ -1,13 +1,17 @@
 ﻿  main.cpp
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(111): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(113): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(133): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(208): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(209): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(222): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(223): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(261): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(264): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(265): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(266): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(271): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(229): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(230): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(248): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(249): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(261): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(262): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(280): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(281): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(319): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(322): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(323): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(324): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\mmeri\onedrive\desktop\assignment1\assignment1\blackjack_core (redesign)\main.cpp(329): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   BLACKJACK_CORE (Redesign).vcxproj -> C:\Users\mmeri\OneDrive\Desktop\Assignment1\Assignment1\Debug\BLACKJACK_CORE_v2.exe

@@ -41,6 +41,7 @@ glm::vec3 levelPos = glm::vec3(0.0f, 0.45f, 0.0f);
 glm::vec3 levelScale = glm::vec3(0.1f, 0.2f, 0.1f);
 
 Shader ShaderProgram;
+Shader rimShader;
 Camera camera(glm::vec3(0.0f, 2.6f, 7.0f)); 
 
 glm::vec3 pointLightPositions[] = {
@@ -85,6 +86,7 @@ int main()
 
 	ShaderProgram = Shader("./Assets/Shaders/Light.vert", "./Assets/Shaders/Light.frag");
 	Shader lightShader("./Assets/Shaders/shaderLight.vert", "./Assets/Shaders/shaderLight.frag");
+	rimShader = Shader("./Assets/Shaders/rimShader.vert", "./Assets/Shaders/rimShader.frag");
 
 	Model object1("./Assets/Models/nanosuit.obj"),		
 		  object2("./Assets/Models/nanosuit.obj"),		
@@ -125,9 +127,7 @@ int main()
 
 		ShaderProgram.setVec3("spotLight.position", camera.Position);
 		ShaderProgram.setVec3("spotLight.direction", camera.Front);
-		ShaderProgram.setVec3("spotLight.ambient", 5.0f, 5.0f, 5.0f);
-		ShaderProgram.setVec3("spotLight.diffuse", 0.0f, 0.0f, 0.0f);
-		ShaderProgram.setVec3("spotLight.specular", 0.0f, 0.0f, 0.0f);
+
 		ShaderProgram.setFloat("spotLight.constant", 0.0f);
 		ShaderProgram.setFloat("spotLight.linear", 0.00);
 		ShaderProgram.setFloat("spotLight.quadratic", 0.032);
@@ -147,8 +147,6 @@ int main()
 
 		ShaderProgram.setMat4("model", o2);
 		object2.Draw(ShaderProgram);
-
-		glDisable(GL_DEPTH_TEST);
 		glEnable(GL_BLEND);
 
 		lightShader.setMat4("model", o3);
@@ -156,8 +154,39 @@ int main()
 
 		lightShader.setMat4("model", o4);
 		object4.Draw(lightShader);
+	
+		rimShader.use();
+
+		rimShader.setMat4("projection_matrix", projection);
+		rimShader.setMat4("view_matrix", camera.GetViewMatrix());
+
+		rimShader.setMat4("model_matrix", LevelOne);
+		rimShader.setMat4("light_position", LevelOne);
+		rimShader.setMat4("eye_position", LevelOne);
+		Level.Draw(rimShader);
+
+		rimShader.setMat4("model_matrix", o1);
+		rimShader.setMat4("light_position", o1);
+		rimShader.setMat4("eye_position", o1);
+		object1.Draw(rimShader);
+
+		rimShader.setMat4("model_matrix", o2);
+		rimShader.setMat4("light_position", o2);
+		rimShader.setMat4("eye_position", o2);
+		object2.Draw(rimShader);
+
+		rimShader.setMat4("model_matrix", o3);
+		rimShader.setMat4("light_position", o3);
+		rimShader.setMat4("eye_position", o3);
+		object3.Draw(rimShader);
+
+		rimShader.setMat4("model_matrix", o4);
+		rimShader.setMat4("light_position", o4);
+		rimShader.setMat4("eye_position", o4);
+		object4.Draw(rimShader);
+		
 		glEnable(GL_DEPTH_TEST);
-		glDisable(GL_BLEND);	
+		glDisable(GL_BLEND);
 
 		glfwSwapBuffers(window);
 		glfwPollEvents(); 
@@ -186,13 +215,19 @@ void processInput(GLFWwindow *window) {
 
 		cout << "No Lighting" << endl;
 
-		ShaderProgram.setVec3("pointLights[0].position", pointLightPositions[0]);
-		ShaderProgram.setVec3("pointLights[0].ambient", 0.0f, 0.0f, 0.0f);
-		ShaderProgram.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.0f);
-		ShaderProgram.setVec3("pointLights[0].specular", 0.0f, 0.0f, 0.0f);
-		ShaderProgram.setFloat("pointLights[0].constant", 0.0f);
-		ShaderProgram.setFloat("pointLights[0].linear", 0.00);
-		ShaderProgram.setFloat("pointLights[0].quadratic", 0.0);
+
+		rimShader.setVec3("pointLights[0].position", pointLightPositions[0]);
+		rimShader.setVec3("pointLights[0].ambient", 2.8f, 2.6f, 2.6f);
+		rimShader.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.0f);
+		rimShader.setVec3("pointLights[0].specular", 0.0f, 0.0f, 0.0f);
+
+		rimShader.setVec3("spotLight.ambient", 5.0f, 5.0f, 5.0f);
+		rimShader.setVec3("spotLight.diffuse", 0.0f, 0.0f, 0.0f);
+		rimShader.setVec3("spotLight.specular", 0.0f, 0.0f, 0.0f);
+
+		rimShader.setFloat("pointLights[0].constant", 1.0f);
+		rimShader.setFloat("pointLights[0].linear", 0.09);
+		rimShader.setFloat("pointLights[0].quadratic", 0.032);
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
@@ -204,9 +239,27 @@ void processInput(GLFWwindow *window) {
 		ShaderProgram.setVec3("pointLights[0].ambient", 2.8f, 2.6f, 2.6f);
 		ShaderProgram.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.0f);
 		ShaderProgram.setVec3("pointLights[0].specular", 0.0f, 0.0f, 0.0f);
+
+		ShaderProgram.setVec3("spotLight.ambient", 5.0f, 5.0f, 5.0f);
+		ShaderProgram.setVec3("spotLight.diffuse", 0.0f, 0.0f, 0.0f);
+		ShaderProgram.setVec3("spotLight.specular", 0.0f, 0.0f, 0.0f);
+
 		ShaderProgram.setFloat("pointLights[0].constant", 1.0f);
 		ShaderProgram.setFloat("pointLights[0].linear", 0.09);
 		ShaderProgram.setFloat("pointLights[0].quadratic", 0.032);
+
+		rimShader.setVec3("pointLights[0].position", pointLightPositions[0]);
+		rimShader.setVec3("pointLights[0].ambient", 2.8f, 2.6f, 2.6f);
+		rimShader.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.0f);
+		rimShader.setVec3("pointLights[0].specular", 0.0f, 0.0f, 0.0f);
+
+		rimShader.setVec3("spotLight.ambient", 5.0f, 5.0f, 5.0f);
+		rimShader.setVec3("spotLight.diffuse", 0.0f, 0.0f, 0.0f);
+		rimShader.setVec3("spotLight.specular", 0.0f, 0.0f, 0.0f);
+
+		rimShader.setFloat("pointLights[0].constant", 1.0f);
+		rimShader.setFloat("pointLights[0].linear", 0.09);
+		rimShader.setFloat("pointLights[0].quadratic", 0.032);
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
@@ -218,6 +271,11 @@ void processInput(GLFWwindow *window) {
 		ShaderProgram.setVec3("pointLights[0].ambient", 0.0f, 0.0f, 0.0f);
 		ShaderProgram.setVec3("pointLights[0].diffuse", 0.0f, 0.0f, 0.0f);
 		ShaderProgram.setVec3("pointLights[0].specular", 2.6f, 2.6f, 2.6f);
+
+		ShaderProgram.setVec3("spotLight.ambient", 4.0f, 4.0f, 4.0f);
+		ShaderProgram.setVec3("spotLight.diffuse", 4.0f, 4.0f, 4.0f);
+		ShaderProgram.setVec3("spotLight.specular", 5.0f, 5.0f, 5.0f);
+
 		ShaderProgram.setFloat("pointLights[0].constant", 1.0f);
 		ShaderProgram.setFloat("pointLights[0].linear", 0.09);
 		ShaderProgram.setFloat("pointLights[0].quadratic", 0.032);
